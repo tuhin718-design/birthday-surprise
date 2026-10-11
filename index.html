@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Priyo Manush ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(145deg, #18051c, #65133f, #250b30);
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(92%, 460px);
+  margin: 25px auto;
+  padding: 25px 20px;
+  border: 1px solid #ffb6d755;
+  border-radius: 28px;
+  background: #ffffff0e;
+  box-shadow: 0 0 35px #ff4c9b25;
+  position: relative;
+  z-index: 2;
+}
+
+.tag {
+  color: #ffc2dc;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: clamp(30px, 8vw, 43px);
+  color: #ffd5e7;
+  text-shadow: 0 0 20px #ff4d9d;
+  margin: 15px 0;
+}
+
+h2 { color: #ffc1db; }
+
+.cake {
+  font-size: 65px;
+  animation: bounce 2s infinite;
+}
+
+.photo-frame {
+  width: 190px;
+  height: 190px;
+  margin: 20px auto;
+  border: 3px solid #ffacd0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 28px #ff5ca6;
+  background: #4a183d;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.message {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #fff0f7;
+}
+
+button, .upload-label {
+  display: inline-block;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 20px;
+  margin: 7px 3px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(90deg, #ff438d, #b72aff);
+  box-shadow: 0 0 15px #ff4c9b55;
+}
+
+input[type="file"] { display: none; }
+
+#surprise {
+  display: none;
+  margin-top: 22px;
+  animation: appear 1s ease;
+}
+
+#surprise p { line-height: 1.9; }
+
+.footer {
+  color: #ffc0dc;
+  font-size: 13px;
+  margin-top: 25px;
+}
+
+.floating {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatUp linear forwards;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-9px) rotate(4deg); }
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+  <div class="tag">A SPECIAL DAY FOR SOMEONE SPECIAL</div>
+
+  <div class="cake">🎂</div>
+  <h1>Happy Birthday! ❤️</h1>
+  <h2>প্রিয় মানুষ 🌹</h2>
+
+  <div class="photo-frame">
+    <img id="photo" alt="Birthday memory"
+      src="photo.jpg">
+  </div>
+
+  <p class="message">
+    শুভ জন্মদিন, আমার প্রিয় মানুষ! 💖<br>
+    তোমার প্রতিটি দিন হোক আনন্দে ভরা।<br>
+    তোমার সব সুন্দর স্বপ্ন পূরণ হোক। ✨<br><br>
+    May your life be filled with happiness,<br>
+    endless smiles and beautiful memories. 🌸<br>
+    You deserve all the wonderful things in life!
+  </p>
+
+  <label class="upload-label" for="photoInput">
+    📸 Choose Photo
+  </label>
+  <input id="photoInput" type="file" accept="image/*">
+
+  <br>
+
+  <button onclick="startMusic()">🎵 Play Music</button>
+  <button onclick="openSurprise()">🎁 Open Surprise</button>
+
+  <div id="surprise">
+    <h2>💌 A Little Surprise For You</h2>
+    <p>
+      তুমি আমার কাছে খুবই স্পেশাল। ❤️<br>
+      তোমার মুখের হাসি সবসময় অটুট থাকুক।<br>
+      জীবন ভরে উঠুক ভালোবাসা আর শান্তিতে। 🌷<br><br>
+      <b>Stay happy, keep smiling! 🥰</b>
+    </p>
+    <div style="font-size:32px">💖 🌹 🎉 💝</div>
+  </div>
+
+  <p class="footer">
+    Made with ❤️ just for you<br>
+    Forever a beautiful memory ✨
+  </p>
+</main>
+
+<audio id="music" src="music.mp3" loop></audio>
+
+<script>
+const photoInput = document.getElementById("photoInput");
+const photo = document.getElementById("photo");
+const music = document.getElementById("music");
+
+photoInput.addEventListener("change", function() {
+  const file = this.files[0];
+  if (file) {
+    photo.src = URL.createObjectURL(file);
+  }
+});
+
+function startMusic() {
+  music.play().catch(() => {
+    alert("music.mp3 ফাইলটি যোগ করো, তারপর আবার চেষ্টা করো!");
+  });
+}
+
+function openSurprise() {
+  document.getElementById("surprise").style.display = "block";
+
+  for (let i = 0; i < 65; i++) {
+    setTimeout(() => {
+      const item = document.createElement("div");
+      item.className = "floating";
+      item.textContent =
+        ["❤️", "💖", "🌹", "✨", "🎉", "💕"][
+          Math.floor(Math.random() * 6)
+        ];
+
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.fontSize = (18 + Math.random() * 20) + "px";
+      item.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+      document.body.appendChild(item);
+      setTimeout(() => item.remove(), 7500);
+    }, i * 35);
+  }
+}
+
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "floating";
+  heart.textContent = ["❤️", "💕", "💗"][
+    Math.floor(Math.random() * 3)
+  ];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = "22px";
+  heart.style.animationDuration = "6s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6500);
+}, 700);
+</script>
+
+</body>
+  </html>
